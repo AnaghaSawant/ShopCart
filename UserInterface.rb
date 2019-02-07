@@ -12,7 +12,7 @@ class UserInterface
 	def main_menu
 		action = true
 		while action == true
-			puts " 1. Display allcategories\n 2. Add product to Main productList\n 3. Dispaly main productlist\n 4. Remove product from main list\n 5. Add product to wish list\n 6.Remove product from wish_list\n 7. Dispaly selected product\n 8. Make bill of purchased product\n 9. Exit"
+			puts "\n 1. Display allcategories\n 2. Add product to Main productList\n 3. Dispaly main productlist\n 4. Remove product from main list\n 5. Add product to wish list\n 6.Remove product from wish_list\n 7. Dispaly selected product\n 8. Make bill of purchased product\n 9. Exit"
             puts "\nEnter your choice:"
             x = gets.to_i
             case x

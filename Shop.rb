@@ -53,9 +53,13 @@ class Shop
 		@prod.calculate_selling_price		
 		puts "select category"
 		cat = gets.chomp.to_i
-		@temp = @categories.at(cat-1)
-		puts @temp.cat_name
-		@temp.products << @prod
+		if(cat == 0 || cat >=6)
+			puts "Invalid choice"
+		else
+			@temp = @categories.at(cat-1)
+			puts "category name :#{@temp.cat_name}"
+			@temp.products << @prod
+		end
 	end
 
 	def display_main_product_list
@@ -84,20 +88,26 @@ class Shop
 	def remove_from_main_product_list
 		puts "enter category from which you want to remove product"
 		c = gets.chomp.to_i 
-		selected_category = @categories.at(c-1)
-		puts selected_category.cat_name
-		
-		puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount_percent"+"\t"+"selling_price"+"\t"+"quantity"
-		selected_category.products.each do |i|
-			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
+		if(c == 0 || c >= 6)
+			puts "Invalid choice"
+		else
+			selected_category = @categories.at(c-1)
+			puts selected_category.cat_name
+			if(selected_category.products.empty?)
+				puts "This category is empty"
+			else
+				puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount_percent"+"\t"+"selling_price"+"\t"+"quantity"
+				selected_category.products.each do |i|
+					puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
+				end
+
+				puts "enter item which you want to remove from selected category"
+				p = gets.chomp.to_i
+				selected_product = selected_category.products.delete_at(p-1)
+
+				puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount_percent"+"\t"+"selling_price"+"\t"+"quantity"
+				puts "#{selected_product.prod_id}\t\t#{selected_product.prod_name}\t\t#{selected_product.cost_price}\t\t#{selected_product.tax}\t\t#{selected_product.discount_percent}\t\t#{selected_product.selling_price}\t\t#{selected_product.quantity}"
+			end
 		end
-
-		puts "enter item which you want to remove from selected category"
-		p = gets.chomp.to_i
-		selected_product = selected_category.products.delete_at(p-1)
-		puts selected_product
-		puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount_percent"+"\t"+"selling_price"+"\t"+"quantity"
-		puts "#{selected_product.prod_id}\t\t#{selected_product.prod_name}\t\t#{selected_product.cost_price}\t\t#{selected_product.tax}\t\t#{selected_product.discount_percent}\t\t#{selected_product.selling_price}\t\t#{selected_product.quantity}"
-
 	end
 end

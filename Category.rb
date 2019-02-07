@@ -3,9 +3,9 @@ class Category
 	attr_writer :cat_id, :cat_name, :products
 
 	def add_category
-		puts "category id :"
+		puts "Enter category id :"
 		@cat_id = gets.chomp.to_i
-		puts "category name"
+		puts "Enter category name"
 		@cat_name = gets.chomp
 		@products = []
 	end

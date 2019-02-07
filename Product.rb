@@ -26,7 +26,7 @@ class Product
 	end
 
 	def set_discount
-		puts "enter discount percent"
+		puts "Enter discount percent"
 		@discount_percent = gets.chomp.to_i
 		puts "Discounted price of product"
 		@discount = @cost_price * @discount_percent / 100
@@ -34,7 +34,7 @@ class Product
 	end
 
 	def calculate_selling_price
-		puts "selling price"
+		puts "Selling price"
 		@selling_price = @cost_price - @discount + @tax
 		puts @selling_price
 	end
