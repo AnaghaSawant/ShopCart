@@ -9,7 +9,6 @@ class Cart
 
 	def add_product_to_wish_list(shop_object)
 		shop_object.all_categories
-
 		more = true
 		while more == true
 			puts "\nselect category"
@@ -27,23 +26,23 @@ class Cart
 					end
 					puts "\nSelect product from category"
 					i = gets.chomp.to_i
-					@selected_product = selected_category.products.at(i-1)	
+					selected_product = selected_category.products.at(i-1)	
 
-					@temp_product = @selected_product.clone
+					temp_product = selected_product.clone
 					puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount_percent"+"\t"+"selling_price"+"\t"+"quantity"
-					puts "#{@temp_product.prod_id}\t\t#{@temp_product.prod_name}\t\t#{@temp_product.cost_price}\t\t#{@temp_product.tax}\t\t#{@temp_product.discount_percent}\t\t#{@temp_product.selling_price}\t\t#{@temp_product.quantity}"
+					puts "#{temp_product.prod_id}\t\t#{temp_product.prod_name}\t\t#{temp_product.cost_price}\t\t#{temp_product.tax}\t\t#{temp_product.discount_percent}\t\t#{temp_product.selling_price}\t\t#{temp_product.quantity}"
 					
 					puts "enter quantity you want"
 					qty = gets.chomp.to_i
-					@temp_product.quantity = qty
-					leftProduct = @selected_product.quantity - @temp_product.quantity   
-			        @selected_product.quantity = leftProduct
-			        puts "Left item: #{@selected_product.quantity}\n"
-
+					temp_product.quantity = qty
+					left_product = selected_product.quantity - temp_product.quantity   
+			        selected_product.quantity = left_product
+			        puts "Left item: #{selected_product.quantity}\n"
+			    
 			        puts "Do u want to continue : Type c or n"
 			        c = gets.chomp
 
-					@wish_list << @temp_product
+					@wish_list << temp_product
 					if c!= "c"
 			            more = false
 			        end
@@ -64,10 +63,10 @@ class Cart
 		while more == true
 			puts "Select product to remove"
 			item = gets.chomp.to_i
-			remove_product = @wish_list.delete_at(item-1)
+			remove_product = @wish_list.delete_at(itadd_product_to_wish_listem-1)
 			puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount_percent"+"\t"+"selling_price"+"\t"+"quantity"
 			puts "#{remove_product.prod_id}\t\t#{remove_product.prod_name}\t\t#{remove_product.cost_price}\t\t#{remove_product.tax}\t\t#{remove_product.discount_percent}\t\t#{remove_product.selling_price}\t\t#{remove_product.quantity}"
-			puts "Do you want to remove more products : Type c or n"
+			puts "Do you want to remove more productadd_product_to_wish_listadd_product_to_wish_listadd_product_to_wish_listadd_product_to_wish_lists : Type c or n"
 			c = gets.chomp.to_i
 			if c!= "c"
 	            more = false

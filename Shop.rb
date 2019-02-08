@@ -47,10 +47,11 @@ class Shop
 	end
 
 	def add_product_to_main_list
-		@prod = Product.new
-		@prod.add_products_info
-		@prod.set_discount
-		@prod.calculate_selling_price		
+		
+		prod = Product.new
+		prod.add_products_info
+		prod.set_discount
+		prod.calculate_selling_price		
 		puts "select category"
 		cat = gets.chomp.to_i
 		if(cat == 0 || cat >=6)
@@ -58,29 +59,30 @@ class Shop
 		else
 			@temp = @categories.at(cat-1)
 			puts "category name :#{@temp.cat_name}"
-			@temp.products << @prod
+			@temp.products << prod
 		end
 	end
 
 	def display_main_product_list
+
 		puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount"+"\t"+"selling_price"+"\t"+"quantity"
-		@cloth.products.each do |i|
+		@categories.at(0).products.each do |i|
 			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
 		end
 
-		@book.products.each do |i|
+		@categories.at(1).products.each do |i|
 			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
 		end
 
-		@home.products.each do |i|
+		@categories.at(2).products.each do |i|
 			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
 		end
 
-		@shoe.products.each do |i|
+		@categories.at(3).products.each do |i|
 			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
 		end
 
-		@cosmetic.products.each do |i|
+		@categories.at(4).products.each do |i|
 			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
 		end
 	end

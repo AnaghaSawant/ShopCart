@@ -1,7 +1,7 @@
 require './Category.rb'
 
 class Product
-	attr_reader :prod_id, :prod_name, :prod_description, :tax, :discount_percent, :selling_price, :cat, :cost_price
+	attr_reader :prod_id, :prod_name, :prod_description, :tax, :discount_percent, :selling_price, :cost_price
 	attr_accessor :quantity
 
 	def add_products_info
@@ -11,9 +11,6 @@ class Product
 
 		puts "enter product name"
 		@prod_name = gets.chomp
-
-		puts "enter product description"
-		@prod_description = gets.chomp
 
 		puts "Cost price of product"
 		@cost_price = gets.chomp.to_i
