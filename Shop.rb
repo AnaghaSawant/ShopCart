@@ -52,7 +52,8 @@ class Shop
 		prod.add_products_info
 		prod.set_discount
 		prod.calculate_selling_price		
-		puts "select category"
+		puts "select category from below categories to add product"
+		all_categories
 		cat = gets.chomp.to_i
 		if(cat == 0 || cat >=6)
 			puts "Invalid choice"
