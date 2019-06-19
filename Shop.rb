@@ -46,20 +46,19 @@ class Shop
 		@categories << @cosmetic
 	end
 
-	def add_product_to_main_list
-		
-		prod = Product.new
-		prod.add_products_info
-		prod.set_discount
-		prod.calculate_selling_price		
-		puts "select category from below categories to add product"
+	def add_product_to_main_list		
 		all_categories
+		puts "select category from below categories to add product"
 		cat = gets.chomp.to_i
 		if(cat == 0 || cat >=6)
 			puts "Invalid choice"
 		else
 			@temp = @categories.at(cat-1)
 			puts "category name :#{@temp.cat_name}"
+			prod = Product.new
+			prod.add_products_info
+			prod.set_discount
+			prod.calculate_selling_price
 			@temp.products << prod
 		end
 	end
@@ -68,6 +67,7 @@ class Shop
 
 		puts "product_id"+"\t"+"product_name"+"\t"+"cost_price"+"\t"+"tax"+"\t"+"discount"+"\t"+"selling_price"+"\t"+"quantity"
 		@categories.at(0).products.each do |i|
+			# puts @categories.at(0).cat_name
 			puts "#{i.prod_id}\t\t#{i.prod_name}\t\t#{i.cost_price}\t\t#{i.tax}\t\t#{i.discount_percent}\t\t#{i.selling_price}\t\t#{i.quantity}"
 		end
 
