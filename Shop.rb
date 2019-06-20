@@ -63,7 +63,7 @@ class Shop
 			CSV.open("MainProductlist.csv", "wb") do |csv|
 				csv << ["product_id","product_name","cost_price","tax","discount_percent","selling_price","quantity"]
 				@temp.products.each do |i|
-					csv << [i.prod_id,i.prod_name,i.cost_price,i.tax,i.discount_percent,i.selling_price,i.quantity]
+					csv << [i.prod_id, i.prod_name, i.cost_price, i.tax, i.discount_percent, i.selling_price, i.quantity]
 			  	end
 			end
 		end
