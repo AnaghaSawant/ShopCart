@@ -1,2 +1,5 @@
-product_id,product_name,cost_price,tax,discount_percent,selling_price,quantity
-1,oo,300,12,5,297,10
+2,kurta,400,10,10,370,3
+2,pant,2000,10,10,1810,5
+2,pant,2000,10,10,1810,5
+3,kurta,333,1,4,321,2
+5,vipro,300,20,4,308,12
