@@ -9,6 +9,7 @@ class Cart
 	end
 
 	def add_product_to_wish_list(shop_object)
+		# shop_object.display_main_product_list
 		read_csv = CSV.open("wishlist.csv","r+")
 		read_csv << ["product_id","product_name","cost_price","tax","discount_percent","selling_price","quantity"]
 		read_csv.close
@@ -18,8 +19,7 @@ class Cart
 			CSV.foreach("MainProductlist.csv", headers: true) do |row|
 	  			data << row.to_hash
 			end
-			puts data
-
+	
 			puts "enter your choice:"
 			c = gets.chomp.to_i
 
@@ -42,9 +42,8 @@ class Cart
 					left_product = selected_product["quantity"].to_i - temp_product["quantity"].to_i  
 			        selected_product["quantity"] = left_product.to_s
 # =======================================================================================================================================================================================================================================================================
-			        puts data
-
-					CSV.open("MainProductlist.csv", "w+") do |csv|
+			     
+					CSV.open("MainProductlist.csv", "a+", headers: true) do |csv|
 						data.each do |i|
 							csv << [i['product_id'],i['product_name'],i['cost_price'],i['tax'],i['discount_percent'],i['selling_price'],i['quantity']]
 						end
