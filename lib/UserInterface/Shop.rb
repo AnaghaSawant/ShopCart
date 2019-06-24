@@ -1,5 +1,5 @@
-require './Category.rb'
-require './Product.rb'
+require_relative './Category.rb'
+require_relative './Product.rb'
 
 class Shop
 	attr_reader :categories

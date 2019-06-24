@@ -1,4 +1,4 @@
-require './Category.rb'
+require_relative './Category.rb'
 
 class Product
 	attr_reader :prod_id, :prod_name, :prod_description, :tax, :discount_percent, :selling_price, :cost_price

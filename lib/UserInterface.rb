@@ -1,5 +1,5 @@
-require './Cart.rb'
-require './Shop.rb'
+require_relative './Cart.rb'
+require_relative './Shop.rb'
 
 class UserInterface
 	attr_reader :shop, :cart
