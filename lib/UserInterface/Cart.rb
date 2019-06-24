@@ -1,5 +1,5 @@
-require './Category.rb'
-require './Shop.rb'
+require_relative './Category.rb'
+require_relative './Shop.rb'
 
 class Cart
 	
